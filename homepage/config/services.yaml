@@ -11,6 +11,11 @@
         href: http://maxsandman.synology.me:9000
         description: Gestion des containers Docker
         ping: maxsandman.synology.me
+        widget:
+          type: portainer
+          url: http://maxsandman.synology.me:9000
+          env: 2
+          key: "{{HOMEPAGE_VAR_PORTAINER_KEY}}"
 
     - Nginx Proxy Manager:
         icon: nginx-proxy-manager.png
@@ -23,42 +28,70 @@
         href: http://maxsandman.synology.me:3001
         description: Monitoring des services
         ping: maxsandman.synology.me
+        widget:
+          type: uptimekuma
+          url: http://maxsandman.synology.me:3001
+          slug: "{{HOMEPAGE_VAR_UPTIMEKUMA_SLUG}}"
 
 - Média:
     - Plex:
         icon: plex.png
         href: https://app.plex.tv/desktop/#!/
         description: Serveur multimédia
+        widget:
+          type: plex
+          url: http://maxsandman.synology.me:32400
+          key: "{{HOMEPAGE_VAR_PLEX_TOKEN}}"
 
     - Overseerr:
         icon: overseerr.png
         href: http://maxsandman.synology.me:5055
         description: Demandes de films et séries
         ping: maxsandman.synology.me
+        widget:
+          type: overseerr
+          url: http://maxsandman.synology.me:5055
+          key: "{{HOMEPAGE_VAR_OVERSEERR_KEY}}"
 
     - Sonarr:
         icon: sonarr.png
         href: http://maxsandman.synology.me:8989
         description: Gestion des séries TV
         ping: maxsandman.synology.me
+        widget:
+          type: sonarr
+          url: http://maxsandman.synology.me:8989
+          key: "{{HOMEPAGE_VAR_SONARR_KEY}}"
 
     - Radarr:
         icon: radarr.png
         href: http://maxsandman.synology.me:7878
         description: Gestion des films
         ping: maxsandman.synology.me
+        widget:
+          type: radarr
+          url: http://maxsandman.synology.me:7878
+          key: "{{HOMEPAGE_VAR_RADARR_KEY}}"
 
     - Bazarr:
         icon: bazarr.png
         href: http://maxsandman.synology.me:6767
         description: Gestion des sous-titres
         ping: maxsandman.synology.me
+        widget:
+          type: bazarr
+          url: http://maxsandman.synology.me:6767
+          key: "{{HOMEPAGE_VAR_BAZARR_KEY}}"
 
     - Prowlarr:
         icon: prowlarr.png
         href: http://maxsandman.synology.me:9696
         description: Gestion des indexeurs
         ping: maxsandman.synology.me
+        widget:
+          type: prowlarr
+          url: http://maxsandman.synology.me:9696
+          key: "{{HOMEPAGE_VAR_PROWLARR_KEY}}"
 
 - Téléchargement:
     - qBittorrent:
