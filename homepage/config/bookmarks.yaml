@@ -1,0 +1,12 @@
+---
+- Synology:
+    - DSM:
+        - href: https://maxsandman.synology.me:5001
+    - Portainer:
+        - href: http://maxsandman.synology.me:9000
+
+- Documentation:
+    - Homepage docs:
+        - href: https://gethomepage.dev/latest/
+    - LinuxServer.io:
+        - href: https://docs.linuxserver.io/

@@ -1,0 +1,96 @@
+---
+- Système:
+    - DSM:
+        icon: synology.png
+        href: https://maxsandman.synology.me:5001
+        description: Interface d'administration Synology
+        ping: maxsandman.synology.me
+
+    - Portainer:
+        icon: portainer.png
+        href: http://maxsandman.synology.me:9000
+        description: Gestion des containers Docker
+        ping: maxsandman.synology.me
+
+- Réseau:
+    - Nginx Proxy Manager:
+        icon: nginx-proxy-manager.png
+        href: http://maxsandman.synology.me:81
+        description: Reverse proxy
+        ping: maxsandman.synology.me
+
+- Monitoring:
+    - Uptime Kuma:
+        icon: uptime-kuma.png
+        href: http://maxsandman.synology.me:3001
+        description: Monitoring des services
+        ping: maxsandman.synology.me
+
+- Média:
+    - Plex:
+        icon: plex.png
+        href: https://app.plex.tv/desktop/#!/
+        description: Serveur multimédia
+
+    - Overseerr:
+        icon: overseerr.png
+        href: http://maxsandman.synology.me:5055
+        description: Demandes de films et séries
+        ping: maxsandman.synology.me
+
+    - Sonarr:
+        icon: sonarr.png
+        href: http://maxsandman.synology.me:8989
+        description: Gestion des séries TV
+        ping: maxsandman.synology.me
+
+    - Radarr:
+        icon: radarr.png
+        href: http://maxsandman.synology.me:7878
+        description: Gestion des films
+        ping: maxsandman.synology.me
+
+    - Bazarr:
+        icon: bazarr.png
+        href: http://maxsandman.synology.me:6767
+        description: Gestion des sous-titres
+        ping: maxsandman.synology.me
+
+    - Prowlarr:
+        icon: prowlarr.png
+        href: http://maxsandman.synology.me:9696
+        description: Gestion des indexeurs
+        ping: maxsandman.synology.me
+
+- Téléchargement:
+    - qBittorrent:
+        icon: qbittorrent.png
+        href: http://maxsandman.synology.me:8080
+        description: Client torrent
+        ping: maxsandman.synology.me
+
+    - NZBGet:
+        icon: nzbget.png
+        href: http://maxsandman.synology.me:6789
+        description: Client Usenet
+        ping: maxsandman.synology.me
+
+- Outils:
+    - ChangeDetection:
+        icon: changedetection-io.png
+        href: http://maxsandman.synology.me:5054
+        description: Surveillance de changements web
+        ping: maxsandman.synology.me
+
+- Perso:
+    - Caen Spectacles:
+        icon: https://maxsandman.synology.me:5050/favicon.ico
+        href: http://maxsandman.synology.me:5050
+        description: Suivi des spectacles à Caen
+        ping: maxsandman.synology.me
+
+    - Dashboard Plongée:
+        icon: https://maxsandman.synology.me:3080/favicon.ico
+        href: http://maxsandman.synology.me:3080
+        description: Dashboard plongée sous-marine
+        ping: maxsandman.synology.me
