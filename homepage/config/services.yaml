@@ -84,13 +84,13 @@
 
 - Perso:
     - Caen Spectacles:
-        icon: https://maxsandman.synology.me:5050/favicon.ico
+        icon: mdi-ticket
         href: http://maxsandman.synology.me:5050
         description: Suivi des spectacles à Caen
         ping: maxsandman.synology.me
 
     - Dashboard Plongée:
-        icon: https://maxsandman.synology.me:3080/favicon.ico
+        icon: mdi-diving-scuba
         href: http://maxsandman.synology.me:3080
         description: Dashboard plongée sous-marine
         ping: maxsandman.synology.me
