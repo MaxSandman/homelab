@@ -12,14 +12,12 @@
         description: Gestion des containers Docker
         ping: maxsandman.synology.me
 
-- Réseau:
     - Nginx Proxy Manager:
         icon: nginx-proxy-manager.png
         href: http://maxsandman.synology.me:81
         description: Reverse proxy
         ping: maxsandman.synology.me
 
-- Monitoring:
     - Uptime Kuma:
         icon: uptime-kuma.png
         href: http://maxsandman.synology.me:3001
@@ -75,13 +73,6 @@
         description: Client Usenet
         ping: maxsandman.synology.me
 
-- Outils:
-    - ChangeDetection:
-        icon: changedetection-io.png
-        href: http://maxsandman.synology.me:5054
-        description: Surveillance de changements web
-        ping: maxsandman.synology.me
-
 - Perso:
     - Caen Spectacles:
         icon: mdi-ticket
@@ -93,4 +84,11 @@
         icon: mdi-diving-scuba
         href: http://maxsandman.synology.me:3080
         description: Dashboard plongée sous-marine
+        ping: maxsandman.synology.me
+
+- Outils:
+    - ChangeDetection:
+        icon: changedetection-io.png
+        href: http://maxsandman.synology.me:5054
+        description: Surveillance de changements web
         ping: maxsandman.synology.me

@@ -12,21 +12,15 @@ layout:
   Système:
     style: column
     columns: 1
-  Réseau:
-    style: column
-    columns: 1
-  Monitoring:
-    style: column
-    columns: 1
   Média:
     style: column
     columns: 1
   Téléchargement:
     style: column
     columns: 1
-  Outils:
+  Perso:
     style: column
     columns: 1
-  Perso:
+  Outils:
     style: column
     columns: 1
