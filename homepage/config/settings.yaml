@@ -10,23 +10,23 @@ showStats: true
 
 layout:
   Système:
-    style: row
-    columns: 4
+    style: column
+    columns: 1
   Réseau:
-    style: row
-    columns: 4
+    style: column
+    columns: 1
   Monitoring:
-    style: row
-    columns: 4
+    style: column
+    columns: 1
   Média:
-    style: row
-    columns: 4
+    style: column
+    columns: 1
   Téléchargement:
-    style: row
-    columns: 4
+    style: column
+    columns: 1
   Outils:
-    style: row
-    columns: 4
+    style: column
+    columns: 1
   Perso:
-    style: row
-    columns: 4
+    style: column
+    columns: 1

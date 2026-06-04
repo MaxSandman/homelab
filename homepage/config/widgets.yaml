@@ -3,7 +3,18 @@
     cpu: true
     memory: true
     disk: /
+    cputemp: true
+    uptime: true
+    units: metric
+    refresh: 3000
 
 - search:
     provider: google
     target: _blank
+
+- openmeteo:
+    label: Caen
+    latitude: 49.1829
+    longitude: -0.3707
+    units: metric
+    cache: 5
