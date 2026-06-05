@@ -4,13 +4,14 @@
         icon: synology.png
         href: https://maxsandman.synology.me:5001
         description: Interface d'administration Synology
-        ping: maxsandman.synology.me
+        statusCheckUrl: https://maxsandman.synology.me:5001
+        statusCheck: true
 
     - Portainer:
         icon: portainer.png
         href: http://maxsandman.synology.me:9000
         description: Gestion des containers Docker
-        ping: maxsandman.synology.me
+        statusCheck: true
         widget:
           type: portainer
           url: http://maxsandman.synology.me:9000
@@ -21,13 +22,13 @@
         icon: nginx-proxy-manager.png
         href: http://maxsandman.synology.me:81
         description: Reverse proxy
-        ping: maxsandman.synology.me
+        statusCheck: true
 
     - Uptime Kuma:
         icon: uptime-kuma.png
         href: http://maxsandman.synology.me:3001
         description: Monitoring des services
-        ping: maxsandman.synology.me
+        statusCheck: true
         widget:
           type: uptimekuma
           url: http://maxsandman.synology.me:3001
@@ -38,6 +39,8 @@
         icon: plex.png
         href: https://app.plex.tv/desktop/#!/
         description: Serveur multimédia
+        statusCheckUrl: http://maxsandman.synology.me:32400
+        statusCheck: true
         widget:
           type: plex
           url: http://maxsandman.synology.me:32400
@@ -47,7 +50,7 @@
         icon: overseerr.png
         href: http://maxsandman.synology.me:5055
         description: Demandes de films et séries
-        ping: maxsandman.synology.me
+        statusCheck: true
         widget:
           type: overseerr
           url: http://maxsandman.synology.me:5055
@@ -57,7 +60,7 @@
         icon: sonarr.png
         href: http://maxsandman.synology.me:8989
         description: Gestion des séries TV
-        ping: maxsandman.synology.me
+        statusCheck: true
         widget:
           type: sonarr
           url: http://maxsandman.synology.me:8989
@@ -67,7 +70,7 @@
         icon: radarr.png
         href: http://maxsandman.synology.me:7878
         description: Gestion des films
-        ping: maxsandman.synology.me
+        statusCheck: true
         widget:
           type: radarr
           url: http://maxsandman.synology.me:7878
@@ -77,7 +80,7 @@
         icon: bazarr.png
         href: http://maxsandman.synology.me:6767
         description: Gestion des sous-titres
-        ping: maxsandman.synology.me
+        statusCheck: true
         widget:
           type: bazarr
           url: http://maxsandman.synology.me:6767
@@ -87,7 +90,7 @@
         icon: prowlarr.png
         href: http://maxsandman.synology.me:9696
         description: Gestion des indexeurs
-        ping: maxsandman.synology.me
+        statusCheck: true
         widget:
           type: prowlarr
           url: http://maxsandman.synology.me:9696
@@ -98,30 +101,30 @@
         icon: qbittorrent.png
         href: http://maxsandman.synology.me:8080
         description: Client torrent
-        ping: maxsandman.synology.me
+        statusCheck: true
 
     - NZBGet:
         icon: nzbget.png
         href: http://maxsandman.synology.me:6789
         description: Client Usenet
-        ping: maxsandman.synology.me
+        statusCheck: true
 
 - Perso:
     - Caen Spectacles:
         icon: mdi-ticket
         href: http://maxsandman.synology.me:5050
         description: Suivi des spectacles à Caen
-        ping: maxsandman.synology.me
+        statusCheck: true
 
     - Dashboard Plongée:
         icon: mdi-diving-scuba
         href: http://maxsandman.synology.me:3080
         description: Dashboard plongée sous-marine
-        ping: maxsandman.synology.me
+        statusCheck: true
 
 - Outils:
     - ChangeDetection:
         icon: changedetection-io.png
         href: http://maxsandman.synology.me:5054
         description: Surveillance de changements web
-        ping: maxsandman.synology.me
+        statusCheck: true
