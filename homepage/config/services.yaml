@@ -16,7 +16,7 @@
         widget:
           type: portainer
           url: http://192.168.1.10:9000
-          env: 2
+          env: 3
           key: "{{HOMEPAGE_VAR_PORTAINER_KEY}}"
 
     - Nginx Proxy Manager:
