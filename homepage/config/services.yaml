@@ -133,11 +133,3 @@
         description: Dashboard plongée sous-marine
         server: my-docker
         container: dashboard-plongee-frontend
-
-- Outils:
-    - ChangeDetection:
-        icon: changedetection-io.png
-        href: http://maxsandman.synology.me:5054
-        description: Surveillance de changements web
-        server: my-docker
-        container: ChangeDetection

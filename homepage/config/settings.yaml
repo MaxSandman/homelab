@@ -21,6 +21,3 @@ layout:
   Perso:
     style: column
     columns: 1
-  Outils:
-    style: column
-    columns: 1
