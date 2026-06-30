@@ -133,3 +133,10 @@
         description: Dashboard plongée sous-marine
         server: my-docker
         container: dashboard-plongee-frontend
+
+- Outils:
+    - Recyclarr:
+        icon: recyclarr.png
+        description: Sync TRaSH Guides vers Radarr/Sonarr
+        server: my-docker
+        container: recyclarr
