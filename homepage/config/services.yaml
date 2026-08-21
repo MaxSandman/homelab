@@ -4,93 +4,150 @@
         icon: synology.png
         href: https://maxsandman.synology.me:5001
         description: Interface d'administration Synology
-        ping: maxsandman.synology.me
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.10:5000
 
     - Portainer:
         icon: portainer.png
         href: http://maxsandman.synology.me:9000
         description: Gestion des containers Docker
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: portainer
+        widget:
+          type: portainer
+          url: http://192.168.1.10:9000
+          env: 3
+          key: "{{HOMEPAGE_VAR_PORTAINER_KEY}}"
 
-- Réseau:
     - Nginx Proxy Manager:
         icon: nginx-proxy-manager.png
         href: http://maxsandman.synology.me:81
         description: Reverse proxy
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: nginx-proxy-manager
 
-- Monitoring:
     - Uptime Kuma:
         icon: uptime-kuma.png
         href: http://maxsandman.synology.me:3001
         description: Monitoring des services
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: uptime-kuma
+        widget:
+          type: uptimekuma
+          url: http://192.168.1.10:3001
+          slug: "{{HOMEPAGE_VAR_UPTIMEKUMA_SLUG}}"
+
+    - Home Assistant:
+        icon: home-assistant.png
+        href: http://maxsandman.synology.me:8123
+        description: Domotique maison
+        server: my-docker
+        container: homeassistant
+        widget:
+          type: homeassistant
+          url: http://192.168.1.10:8123
+          key: "{{HOMEPAGE_VAR_HOMEASSISTANT_KEY}}"
 
 - Média:
     - Plex:
         icon: plex.png
         href: https://app.plex.tv/desktop/#!/
         description: Serveur multimédia
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.10:32400
+        widget:
+          type: plex
+          url: http://192.168.1.10:32400
+          key: "{{HOMEPAGE_VAR_PLEX_TOKEN}}"
 
     - Overseerr:
         icon: overseerr.png
         href: http://maxsandman.synology.me:5055
         description: Demandes de films et séries
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: Overseerr
+        widget:
+          type: overseerr
+          url: http://192.168.1.10:5055
+          key: "{{HOMEPAGE_VAR_OVERSEERR_KEY}}"
 
     - Sonarr:
         icon: sonarr.png
         href: http://maxsandman.synology.me:8989
         description: Gestion des séries TV
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: Sonarr
+        widget:
+          type: sonarr
+          url: http://192.168.1.10:8989
+          key: "{{HOMEPAGE_VAR_SONARR_KEY}}"
 
     - Radarr:
         icon: radarr.png
         href: http://maxsandman.synology.me:7878
         description: Gestion des films
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: Radarr
+        widget:
+          type: radarr
+          url: http://192.168.1.10:7878
+          key: "{{HOMEPAGE_VAR_RADARR_KEY}}"
 
     - Bazarr:
         icon: bazarr.png
         href: http://maxsandman.synology.me:6767
         description: Gestion des sous-titres
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: Bazarr
+        widget:
+          type: bazarr
+          url: http://192.168.1.10:6767
+          key: "{{HOMEPAGE_VAR_BAZARR_KEY}}"
 
     - Prowlarr:
         icon: prowlarr.png
         href: http://maxsandman.synology.me:9696
         description: Gestion des indexeurs
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: Prowlarr
+        widget:
+          type: prowlarr
+          url: http://192.168.1.10:9696
+          key: "{{HOMEPAGE_VAR_PROWLARR_KEY}}"
 
 - Téléchargement:
     - qBittorrent:
         icon: qbittorrent.png
         href: http://maxsandman.synology.me:8080
         description: Client torrent
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: Qbittorrent
 
     - NZBGet:
         icon: nzbget.png
         href: http://maxsandman.synology.me:6789
         description: Client Usenet
-        ping: maxsandman.synology.me
-
-- Outils:
-    - ChangeDetection:
-        icon: changedetection-io.png
-        href: http://maxsandman.synology.me:5054
-        description: Surveillance de changements web
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: Nzbget
 
 - Perso:
     - Caen Spectacles:
-        icon: https://maxsandman.synology.me:5050/favicon.ico
-        href: http://maxsandman.synology.me:5050
+        icon: mdi-ticket
+        href: http://maxsandman.synology.me:8000
         description: Suivi des spectacles à Caen
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: caen-spectacles
 
     - Dashboard Plongée:
-        icon: https://maxsandman.synology.me:3080/favicon.ico
+        icon: mdi-diving-scuba
         href: http://maxsandman.synology.me:3080
         description: Dashboard plongée sous-marine
-        ping: maxsandman.synology.me
+        server: my-docker
+        container: dashboard-plongee-frontend
+
+- Outils:
+    - Recyclarr:
+        icon: recyclarr.png
+        description: Sync TRaSH Guides vers Radarr/Sonarr
+        server: my-docker
+        container: recyclarr
