@@ -2,7 +2,7 @@
 
 Configuration du dashboard Homepage pour NAS Synology DS218.
 
-Contient aussi [`ukulele/`](ukulele/README.md) : l'application « Ukulélé Facile » (apprendre le ukulélé), servie en Docker sur le port 8095.
+L'application « Ukulélé Facile » (tuile *Perso* du Homepage, port 8095) vit dans son propre dépôt : [MaxSandman/yukulele](https://github.com/MaxSandman/yukulele).
 
 ## Structure
 
