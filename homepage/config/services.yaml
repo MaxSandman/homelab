@@ -144,6 +144,13 @@
         server: my-docker
         container: dashboard-plongee-frontend
 
+    - Ukulélé Facile:
+        icon: mdi-music
+        href: http://maxsandman.synology.me:8095
+        description: Apprendre le ukulélé (leçons, accords, chansons)
+        server: my-docker
+        container: ukulele
+
 - Outils:
     - Recyclarr:
         icon: recyclarr.png
