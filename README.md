@@ -2,6 +2,8 @@
 
 Configuration du dashboard Homepage pour NAS Synology DS218.
 
+L'application « Ukulélé Facile » (tuile *Perso* du Homepage, port 8095) vit dans son propre dépôt : [MaxSandman/yukulele](https://github.com/MaxSandman/yukulele).
+
 ## Structure
 
 ```
