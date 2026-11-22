@@ -16,13 +16,23 @@ Elle est faite pour être posée devant soi (tablette, ordi, téléphone) pendan
 | 🎼 **Mélodies** | Tablature animée note par note (Frère Jacques, Au clair de la lune…), avec un mode **🎤 « J'attends ta note »** qui écoute au micro. |
 | 🔁 **Entraînement** | Enchaînements d'accords au tempo (l'exercice le plus utile) + quiz « trouve la note sur le manche ». |
 | 🎚️ **Accordeur** | Au micro, ou à l'oreille avec des sons de référence. |
+| 🎶 **Niveau 2 : accords + mélodie** | Fingerstyle, pour qui a l'habitude du piano à deux mains : le **pouce** joue l'accompagnement (la « main gauche » du piano), l'**index/majeur** la mélodie (la « main droite »). Tablature en couleurs à deux couches, forme d'accord de la main gauche, entraînement **mains séparées** (l'appli joue l'autre partie), pas-à-pas, boucle de 4 mesures, 6 styles d'accompagnement. Morceaux : Canon (Pachelbel), Tetris (Korobeiniki), Greensleeves, Gymnopédie n°1 (Satie), The Entertainer (Joplin), Lettre à Élise. |
+| 🎧 **Traduire un morceau** | On donne un **fichier audio** (mp3, m4a, wav…) : l'outil détecte le tempo, les temps, la tonalité et les **accords**, puis on joue **par-dessus le vrai morceau** (accord actuel/suivant, compte à rebours, frise des accords, vitesse réduite sans changer la hauteur, boucle). Suggestion de **capodastre** pour avoir des formes faciles, correction d'un accord en un clic, export vers le carnet de chansons. |
+| 🎹 **Transcrire une mélodie** | On joue la mélodie (piano main droite, voix, sifflement) au micro ou via un mémo vocal : l'outil la transcrit en tablature ukulélé, et on peut y ajouter les accords pour en faire un morceau du niveau 2. |
 
 Tout est en local dans le navigateur (pas de compte, pas de base de données). La progression et les
 chansons ajoutées sont stockées dans le navigateur, avec export/import dans **Réglages**.
 L'appli fonctionne aussi hors ligne et peut être « ajoutée à l'écran d'accueil » d'une tablette.
 
-Les chansons fournies sont traditionnelles ou du domaine public. Pour les autres chansons, on colle soi-même
-les accords trouvés sur internet (usage personnel).
+Les morceaux fournis sont traditionnels ou du domaine public (le dépôt est public : on n'y publie pas de
+partitions de chansons protégées). Pour les autres chansons, on colle soi-même les accords trouvés sur internet,
+ou on fait « Traduire un morceau » à partir d'un fichier audio : tout reste dans le navigateur, pour un usage perso.
+
+**Limites de l'analyse audio** : elle tourne entièrement dans le navigateur (rien n'est envoyé sur internet ni au NAS).
+Les accords sont reconnus parmi les accords majeurs et mineurs ; c'est fiable sur la pop/folk aux accords clairs,
+moins sur le jazz ou les morceaux très produits (d'où le bouton de correction). La mélodie d'un enregistrement complet
+(voix + instruments) ne peut pas être isolée de façon fiable : on la rejoue soi-même pour la transcrire.
+YouTube n'est pas pris en charge (il faut un fichier audio).
 
 ## Structure
 
@@ -33,30 +43,34 @@ ukulele/
 └── app/                 # le site (HTML/CSS/JS, aucune compilation nécessaire)
     ├── index.html
     ├── css/style.css
-    └── js/              # app.js (pages), player.js (lecteur), parser.js (traducteur),
-                         # chords.js (dictionnaire), audio.js (son, métronome, micro), ...
+    └── js/              # app.js (pages), player.js (lecteur), parser.js (traducteur de texte),
+                         # chords.js (dictionnaire), audio.js (son, métronome, micro),
+                         # arrange.js + fingerstyle.js (niveau 2), analysis-worker.js (analyse audio),
+                         # translate.js (pages « Traduire un morceau »), ...
 ```
 
 Pour ajouter une chanson « officielle » au carnet, l'éditer dans `app/js/songs.js` (format ChordPro, `[C:2]` = 2 temps).
+Pour un morceau du niveau 2 : `app/js/arrange.js` (`chords` = un accord par mesure, `melody` = `Note+octave:durée`,
+ex. `A4:1 C5:0.5 R:1`) : la position sur le manche et l'accompagnement sont calculés automatiquement.
 
 ## Déploiement sur le NAS (Synology DS218)
 
 1. **Récupérer le code** sur le NAS (SSH), par exemple dans `/volume1/docker/` :
    ```bash
    cd /volume1/docker
-   git clone https://github.com/MaxSandman/homelab.git
-   cd homelab/ukulele
+   git clone https://github.com/MaxSandman/yukulele.git
+   cd yukulele
    ```
 2. **Lancer le conteneur**, au choix :
    - en SSH : `sudo docker compose up -d` (ou `sudo docker-compose up -d` selon la version de DSM)
    - ou dans **Portainer** → *Stacks* → *Add stack* → coller le contenu de `docker-compose.yml`,
      en remplaçant `./app` et `./nginx.conf` par les chemins complets
-     (`/volume1/docker/homelab/ukulele/app`, etc.)
+     (`/volume1/docker/yukulele/app`, etc.)
 3. Ouvrir **http://192.168.1.10:8095** (ou `http://maxsandman.synology.me:8095` depuis l'extérieur si le port est redirigé sur la box).
 
 **Mise à jour** : `git pull` dans le dossier, c'est tout (nginx sert directement les fichiers, pas besoin de redémarrer).
 
-## Activer le micro (accordeur + mode « J'attends ta note ») : HTTPS
+## Activer le micro (accordeur, « J'attends ta note », enregistrement de mélodie) : HTTPS
 
 Les navigateurs n'autorisent le micro que sur une adresse **https://** (ou `localhost`).
 Tout le reste de l'appli fonctionne en http. Le plus simple, avec le certificat déjà présent sur le NAS :
@@ -71,7 +85,7 @@ Alternative : créer un *Proxy Host* équivalent dans Nginx Proxy Manager avec u
 ## Tester en local (sans Docker)
 
 ```bash
-cd ukulele/app
+cd app
 python3 -m http.server 8000
 ```
 puis ouvrir http://localhost:8000 (le micro fonctionne sur `localhost`).

@@ -254,4 +254,38 @@ Ultimate Guitar, Boîte à chansons, Ukulele Tabs…), copie les paroles avec le
 <a href="#/importer">Ajouter une chanson</a> : l’outil la transforme en partition jouable, te montre les accords
 et peut même la <b>transposer</b> pour la rendre plus facile.</p>`,
   },
+  {
+    id: 'niveau2',
+    title: 'Niveau 2 : accords + mélodie (fingerstyle)',
+    icon: '🎶',
+    minutes: 20,
+    body: `
+<p>Si tu joues du piano, tu as l’habitude d’une main pour l’accompagnement et d’une main pour la mélodie.
+Au ukulélé, c’est possible aussi : ça s’appelle le <b>fingerstyle</b> (jouer avec les doigts, sans gratter).</p>
+<h3>Qui fait quoi ?</h3>
+<table class="map">
+  <tr><th>Au piano</th><th>Au ukulélé</th></tr>
+  <tr><td>Main gauche : les accords, les basses</td><td><b>Pouce</b> de la main droite : il pince les cordes de <b>Sol</b> et de <b>Do</b></td></tr>
+  <tr><td>Main droite : la mélodie</td><td><b>Index et majeur</b> de la main droite : ils pincent la mélodie, surtout sur les cordes de <b>Mi</b> et de <b>La</b></td></tr>
+  <tr><td>Le clavier</td><td>La <b>main gauche</b> : elle tient la <b>forme de l’accord</b> et bouge un doigt quand la mélodie le demande</td></tr>
+</table>
+<h3>Lire la partition en couleurs</h3>
+<ul>
+  <li>Chaque ligne est une corde (même couleur que partout dans l’outil). Le chiffre est la <b>case</b>.</li>
+  <li><b>Grandes cases pleines</b> = la mélodie (index / majeur). Leur longueur montre combien de temps la note dure.</li>
+  <li><b>Petites cases « P »</b> = l’accompagnement, joué au pouce.</li>
+  <li>En haut, le nom de l’accord à tenir avec la main gauche ; il est aussi dessiné à gauche.</li>
+</ul>
+<h3>Comment travailler (comme au piano !)</h3>
+<ol>
+  <li><b>Mélodie seule</b> (bouton ☝️) : l’appli joue l’accompagnement pour toi.</li>
+  <li><b>Pouce seul</b> (bouton 👍) : l’appli joue la mélodie, tu fais l’accompagnement.</li>
+  <li><b>Les deux</b> (🙌), à 50 % de la vitesse, en <b>Pas-à-pas</b> si besoin (barre Espace = note suivante).</li>
+  <li>Active « Répéter la phrase » pour boucler 4 mesures jusqu’à ce qu’elles soient fluides.</li>
+</ol>
+<p class="tip">💡 Pince les cordes, ne les gratte pas : le pouce pousse la corde vers le bas, l’index et le majeur la tirent vers le haut.
+Pose ton annulaire ou ton auriculaire sur la caisse pour stabiliser la main.</p>
+<p><a class="btn primary" href="#/niveau2/canon">▶ Commencer par le Canon de Pachelbel</a>
+<a class="btn" href="#/niveau2">Tous les morceaux du niveau 2</a></p>`,
+  },
 ];

@@ -11,6 +11,9 @@ import { PATTERNS, patternHtml, mountStrumTrainer } from './rhythm.js';
 import { LESSONS } from './lessons.js';
 import { MELODIES, mountMelody } from './melodies.js';
 import { mountTuner } from './tuner.js';
+import { PIECES } from './arrange.js';
+import { mountFingerstyle } from './fingerstyle.js';
+import { translatePage, trackPage, melodyPage } from './translate.js';
 
 const main = $('#main');
 let cleanups = [];
@@ -127,6 +130,8 @@ views.home = () => {
     ${tile('#/manche', '🎸', 'Le manche', 'Explore les notes, case par case.')}
     ${tile('#/rythme', '🥁', 'Rythmes', 'Les grattages avec métronome.')}
     ${tile('#/melodies', '🎼', 'Mélodies', 'Joue note par note avec la tablature.')}
+    ${tile('#/niveau2', '🎶', 'Niveau 2 : accords + mélodie', 'Tetris, Satie, Joplin… le pouce accompagne, les doigts chantent.')}
+    ${tile('#/traduire', '🎧', 'Traduire un morceau', 'Donne un fichier audio : l’outil trouve les accords.')}
     ${tile('#/entrainement', '🔁', 'Entraînement', 'Changements d’accords, quiz des notes.')}
     ${tile('#/accordeur', '🎚️', 'Accordeur', 'Accorde ton ukulélé au micro ou à l’oreille.')}
   </section>
@@ -771,6 +776,45 @@ views.settings = () => {
   };
 };
 
+// ---- Niveau 2 : accords + mélodie
+const allPieces = () => [...PIECES, ...(store.state.arrangements || []).map((p) => ({ ...p, custom: true }))];
+views.level2 = () => {
+  main.innerHTML = `<h1>Niveau 2 : accords + mélodie</h1>
+  <p class="lead">Comme au piano avec deux mains : au ukulélé, le <b>pouce</b> joue l’accompagnement (ta « main gauche » de pianiste)
+  et l’<b>index / majeur</b> jouent la mélodie (ta « main droite »), pendant que la main gauche tient la forme de l’accord.
+  Tout est en couleurs, sans solfège. Commence par la leçon :</p>
+  <p><a class="btn" href="#/lecons/niveau2">📚 Leçon : jouer accords + mélodie</a> <a class="btn" href="#/traduire/melodie">🎹 Transcrire ta propre mélodie</a></p>
+  <div class="grid songs">${allPieces()
+    .map(
+      (p) => `<div class="card song-card"><a class="sc-main" href="#/niveau2/${encodeURIComponent(p.id)}"><b>${esc(p.title)}</b>
+      <span class="muted">${esc(p.composer || '')}</span><span>${esc(p.desc || '')}</span>
+      <span class="sc-chords">${[...new Set((p.chords || '').replace(/[|,]/g, ' ').split(/\s+/).filter((c) => parseChord(c)))].map((c) => `<span class="chip ${store.isKnown(c) ? 'known' : ''}">${esc(pretty(c))}</span>`).join('')}</span></a>
+      <div class="sc-foot">${starsHtml(p.level || 2, 3)} ${p.custom ? `<span class="badge">perso</span> <button class="btn sm danger" data-del="${esc(p.id)}">🗑</button>` : ''}
+      <a class="btn sm primary" href="#/niveau2/${encodeURIComponent(p.id)}">▶ Jouer</a></div></div>`
+    )
+    .join('')}</div>`;
+  main.querySelectorAll('[data-del]').forEach(
+    (b) =>
+      (b.onclick = () => {
+        if (!confirm('Supprimer ce morceau ?')) return;
+        store.update((st) => (st.arrangements = st.arrangements.filter((a) => a.id !== b.dataset.del)));
+        views.level2();
+      })
+  );
+};
+views.piece = (id) => {
+  id = decodeURIComponent(id);
+  const p = allPieces().find((x) => x.id === id);
+  if (!p) return views.notFound();
+  main.innerHTML = `<div class="crumbs"><a href="#/niveau2">← Niveau 2</a></div><div class="fs-host"></div>`;
+  onCleanup(mountFingerstyle($('.fs-host'), p));
+  wireDiagrams(main);
+};
+
+// ---- Traduire
+views.translate = () => translatePage(main, onCleanup);
+views.track = (id) => (id === 'melodie' ? melodyPage(main, onCleanup) : trackPage(main, id, onCleanup));
+
 views.notFound = () => {
   main.innerHTML = `<h1>Page introuvable</h1><p><a href="#/">← Retour à l’accueil</a></p>`;
 };
@@ -792,6 +836,10 @@ const ROUTES = [
   [/^\/accordeur$/, views.tuner, 'accordeur'],
   [/^\/entrainement$/, views.practice, 'entrainement'],
   [/^\/reglages$/, views.settings, 'reglages'],
+  [/^\/niveau2$/, views.level2, 'niveau2'],
+  [/^\/niveau2\/(.+)$/, views.piece, 'niveau2'],
+  [/^\/traduire$/, views.translate, 'traduire'],
+  [/^\/traduire\/([\w-]+)$/, views.track, 'traduire'],
 ];
 
 function route() {

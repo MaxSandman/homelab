@@ -70,7 +70,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 16px 16px 80px; outline: none
 .nav a:hover { background: var(--bg2); }
 .nav a.active { background: var(--accent); color: var(--accent-ink); }
 .nav-toggle { display: none; font-size: 1.4rem; background: none; border: 0; color: var(--ink); cursor: pointer; padding: 4px 8px; }
-@media (max-width: 1180px) {
+@media (max-width: 1380px) {
   .nav-toggle { display: block; }
   .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--card); border-bottom: 1px solid var(--line);
     flex-direction: column; padding: 8px 16px 16px; box-shadow: var(--shadow); }
@@ -94,6 +94,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 16px 16px 80px; outline: none
 .btn.danger { color: var(--danger); }
 .btn.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
+select { max-width: 100%; }
 input, select, textarea {
   font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .45em .6em;
 }
@@ -390,3 +391,56 @@ label { display: inline-flex; align-items: center; gap: .4em; }
   .pattern .count { font-size: .65rem; }
   .bd { width: 34px; height: 34px; }
 }
+
+/* ---------------------------------------------------------------- Niveau 2 (fingerstyle) */
+.fs-how summary { cursor: pointer; }
+.fs-key { display: inline-block; padding: 0 .5em; border-radius: 6px; font-size: .85rem; font-weight: 700; }
+.fs-key.mel { background: var(--s-a); color: #fff; padding: .1em .8em; }
+.fs-key.acc { border: 2px solid var(--s-c); color: var(--s-c); }
+.fs-stage { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 12px; align-items: start; }
+.fs-stage > .card { margin: 0; }
+@media (max-width: 760px) { .fs-stage { grid-template-columns: minmax(0, 1fr); } }
+.fs-chord { text-align: center; }
+.fs-now { min-height: 150px; display: grid; place-items: center; }
+.fs-next { opacity: .8; }
+.fs-tab-wrap { position: relative; overflow: hidden; background: var(--bg2); border-radius: 12px; }
+.fs-tab { position: absolute; inset: 0; }
+.fs-tab .tab-scroll { left: 34%; }
+.fs-tab .tab-sname { margin-top: 0; }
+.fs-now-note { margin-top: 10px; font-size: 1.05rem; min-height: 1.6em; }
+.fs-cname { font-size: 14px; font-weight: 800; fill: var(--accent); }
+.fs-accpill { fill: var(--card); stroke-width: 2.5; }
+.fs-accpill.sg { stroke: var(--s-g); } .fs-accpill.sc { stroke: var(--s-c); } .fs-accpill.se { stroke: var(--s-e); } .fs-accpill.sa { stroke: var(--s-a); }
+.fs-accfret { font-size: 13px; font-weight: 800; fill: var(--ink); text-anchor: middle; }
+.fs-p { font-size: 9px; font-weight: 800; fill: var(--muted); text-anchor: middle; }
+.fs-n { cursor: pointer; transition: opacity .2s; }
+.fs-n.dim { opacity: .22; }
+.fs-n.now .tab-pill, .fs-n.now .fs-accpill { stroke: var(--ink); stroke-width: 3.5; }
+.fs-n.now.acc .fs-accpill { fill: var(--accent-soft); }
+.fb-marker.shape { opacity: .45; }
+.fb-marker.acc-now, .fb-open.acc-now { fill: var(--s-c); }
+
+/* ---------------------------------------------------------------- Traduire */
+.tr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.tr-grid > .card { margin: 0; }
+.tr-grid h2 { margin-top: 0; }
+@media (max-width: 860px) { .tr-grid { grid-template-columns: 1fr; } }
+.tr-progress .progress { max-width: none; }
+.tk-strip-wrap { position: relative; overflow: hidden; height: 74px; background: var(--bg2); border-radius: 12px; }
+.tk-strip { position: absolute; inset: 0 0 0 34%; }
+.tk-track { position: absolute; top: 0; bottom: 0; left: 0; will-change: transform; }
+.tk-seg { position: absolute; top: 10px; height: 54px; border-radius: 10px; background: var(--card); border: 2px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 6px; overflow: hidden; cursor: pointer; font-size: 1.05rem; }
+.tk-seg.none { background: transparent; border-style: dashed; color: var(--muted); }
+.tk-seg.cur { border-color: var(--accent); background: var(--accent-soft); }
+.tk-pen { border: 0; background: none; cursor: pointer; font-size: .85rem; padding: 2px; opacity: .6; }
+.tk-pen:hover { opacity: 1; }
+.tk-beat { position: absolute; bottom: 0; width: 1px; height: 6px; background: var(--muted); }
+.tk-beat.bar { height: 12px; width: 2px; }
+.tk-edit { margin-top: 8px; padding: 10px; border-radius: 12px; background: var(--accent-soft); }
+.btn.rec { background: var(--danger); color: #fff; animation: pulse 1s infinite; }
+table.map { border-collapse: collapse; width: 100%; margin: 8px 0; }
+table.map th, table.map td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+table.map th { background: var(--bg2); }
+.fs-acc { max-width: 60vw; }
+@media (max-width: 560px) { .pl-controls label:has(.fs-acc) { flex-wrap: wrap; } .fs-acc { max-width: calc(100vw - 80px); } }

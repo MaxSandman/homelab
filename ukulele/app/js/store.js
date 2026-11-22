@@ -12,6 +12,7 @@ const DEFAULTS = {
   lessons: {}, // id -> true
   known: [], // accords maîtrisés
   songs: [], // chansons perso {id, source, created}
+  arrangements: [], // morceaux niveau 2 perso (mélodies transcrites)
   favorites: [],
 };
 
